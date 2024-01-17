@@ -26,7 +26,7 @@ public class App {
        
         return currentoperator;
      }
-     // check the player colloid with the pillar or not
+   
      public static boolean playercolloidcheck(char[][] maze,int pos_x,int pos_y){
         boolean colloided = false;
        if(maze[pos_x][pos_y] == '|' || maze[pos_x][pos_y] == '='){
