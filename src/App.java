@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class App {
-  // get the input from the user for movement
+  
     public static int getinput(String description){
         Scanner scan = new Scanner(System.in);
         System.out.println(description);
@@ -9,7 +9,7 @@ public class App {
 
         return movement;
     }
-// check to pass the wall 
+
      public static int wallcolloidcheck(int currentoperator, int keypress){
         if(currentoperator == 0 && keypress == 8){
             currentoperator = 18;
@@ -36,12 +36,12 @@ public class App {
        }
         return colloided;
      }
-     // end the game if condition is true
+     
      public static void endgame(String gameover){
         System.out.println(gameover);
         System.exit(0);
      } 
-     // count the money if obtained
+   
      public static int add_dollor(char[][] maze,int pos_x,int pos_y,int dollor_count){
         if(maze[pos_x][pos_y] == '$'){
             dollor_count = dollor_count + 1;
@@ -50,7 +50,7 @@ public class App {
         }
         return dollor_count;
      }
- // update the maze for every position
+ 
     public static void mazeupdate(char[][] maze,char player,int pos_x,int pos_y,int dollor_count) {
         int prev_x = pos_x;
         int prev_y = pos_y;
@@ -78,16 +78,16 @@ public class App {
         draw(maze);
         update(maze, player, pos_x, pos_y,dollor_count);
       }
- // generte a random number for position
+ 
       public static int randomNogenertor(int max,int min){
         int position = (int)(Math.random()*(max-min)+min);
         return position;
       }
-  // trigger to update
+
     public static void update(char[][] maze,char player,int pos_x,int pos_y,int dollor_count){
         mazeupdate(maze, player, pos_x, pos_y,dollor_count);
     }
-    // draw the maze
+    
     public static void draw(char[][] maze){
         for(int i =0;i<20;i++ ){
             for(int j=0;j<41;j++){
@@ -96,7 +96,7 @@ public class App {
             System.out.println();
          }
     }
-    // check boundary for initial spawning
+
     public static void checkboundary(int pos_x,int pos_y) {
         if(pos_x >= 38){
             pos_x = 38;
@@ -105,7 +105,7 @@ public class App {
             pos_y = 18;
         }
     }
-    // to spwan at even location
+   
     public static int spawnevenlocation(int current_y){
         if(current_y % 2 == 0){
             current_y = current_y;
@@ -115,7 +115,7 @@ public class App {
         }
         return current_y;
     }
-    // spawn money
+
     public static void spawnmoney(char[][] maze,char dollor,int no_ofdollor){
       for(int i = 0;i< no_ofdollor;i++){
         int money_x = randomNogenertor(18, 1);
@@ -128,7 +128,7 @@ public class App {
          maze[money_x][money_y] = dollor;
       }
     }
-    // arrange the proper pillar to the borders
+
     public static char checkmazeborder(char maze[][],int pillarpattern_x,int pillarpattern_y,char pillar){
   for(int i = 0;i<20;i++){
     for(int j = 0;j<41;j++){
@@ -149,7 +149,7 @@ public class App {
          return pillar;
     }
     
-    // generate a random pillar at locationa
+
     public static void generatemazepattern(char[][] maze,int lvl_of_hardness){
         char pillartypes[] = {'|','=','|','=','|','=','|','=','|','=','|','=','|','='};
         for(int i = 0; i<20;i++){
@@ -192,7 +192,7 @@ public class App {
             maze[pillarpattern_x][pillarpattern_y] = pillar;
         }
     }
-    // the main function
+
     public static void main(String[] args)  {
         char player = '@';
         char dollor = '$';
